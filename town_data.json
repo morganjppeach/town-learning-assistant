@@ -249,6 +249,72 @@
       "start_time": "2026-06-09T08:08:03.941697",
       "end_time": "2026-06-09T08:08:03.941766",
       "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
+    },
+    "78fd4378-1b67-4976-8538-0a931664d262": {
+      "run_id": "78fd4378-1b67-4976-8538-0a931664d262",
+      "routine_id": "autonomous_research_brief",
+      "status": "completed",
+      "inputs": {
+        "research_preferences": "High-detail, academic sources",
+        "topic": "the white paper of million steps with ai and zero error"
+      },
+      "trigger_context": {
+        "topic": "the white paper of million steps with ai and zero error"
+      },
+      "step_results": {
+        "search": {
+          "query": "the white paper of million steps with ai and zero error",
+          "provider": "duckduckgo",
+          "results": [
+            {
+              "title": "[2511.09030] Solving a Million-Step LLM Task with Zero Errors",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Farxiv.org%2Fabs%2F2511.09030&amp;rut=2082f698251092bf6982fdfbdb9d622a6502f1b530325e8b37955a228f29e4cb",
+              "snippet": "This paper describes MAKER, the first system that successfully solves a task with over one million LLM steps with zero errors, and, in principle, scales far beyond this level. The approach relies on an extreme decomposition of a task into subtasks, each of which can be tackled by focused microagents.",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Shattering the Illusion: MAKER Achieves Million-Step, Zero-Error LLM ...",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cognizant.com%2Fus%2Fen%2Fai%2Dlab%2Fblog%2Fmaker&amp;rut=1ee875af3bc4c297c03808c5ca66f9a5c09af49ee4ae4a002b92e740991a7e1e",
+              "snippet": "Figure 2. Orthogonal directions to scaling AI MAKER takes an orthogonal path, scaling reliability instead of model size. The chart compares leading LLMs by their error-free step length versus cost, showing that while single models fail after hundreds of steps, MAKER completes over one million with zero errors. A million-step evaluation: Towers of Hanoi, zero errors To test the theory, the team ...",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Solving a Million-Step LLM Task with Zero Errors",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F397556709_Solving_a_Million%2DStep_LLM_Task_with_Zero_Errors&amp;rut=e0adc7c316c53412ca9d053bbde64c4eb2209f208f4431221fb6c63b144df72c",
+              "snippet": "This paper describes MAKER, the first system that successfully solves a task with over one million LLM steps with zero errors, and, in principle, scales far beyond this level.",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Paper page - Solving a Million-Step LLM Task with Zero Errors",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fhuggingface.co%2Fpapers%2F2511.09030&amp;rut=d7d13b05fa713b281802e84011f6c9acbc5df50518a624234dac1a2507581d7c",
+              "snippet": "Join the discussion on this paper page This paper shows how even relatively small non-reasoning LLMs can be scaled to completing tasks with over a million steps with zero errors, and in theory can scale far beyond that. It relies on being able to decompose a task into small enough subtasks so that sampling a correct answer is somewhat likely, and no incorrect answer is more likely. How to ...",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Solving a Million-Step LLM Task with Zero Errors: The Power of ...",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fjosep%2Daudenis.github.io%2Fposts%2F2025%2F11%2Fmillion%2Dstep%2Dtask%2F&amp;rut=e975bf0839b7e6414ce13fe213752bcfb5d3a5e65792e95cd24275fda84dd4e4",
+              "snippet": "A groundbreaking paper introduces MAKER, a system that solves a million-step LLM task with zero errors by breaking problems into tiny pieces and voting on each step. It&#x27;s a new path to scalable, reliable AI.",
+              "score": null,
+              "source": "duckduckgo"
+            }
+          ],
+          "error": null
+        },
+        "summarize": {
+          "summary": "No results found for 'the white paper of million steps with ai and zero error'.",
+          "provider": "heuristic",
+          "query": "the white paper of million steps with ai and zero error",
+          "warning": "No LLM provider configured. Set OPENAI_API_KEY or ANTHROPIC_API_KEY for real summarization."
+        },
+        "format": "--- RESEARCH BRIEF ---\nTopic: the white paper of million steps with ai and zero error\n(synthesized via unknown)\nNo summary available\n--- END BRIEF ---"
+      },
+      "start_time": "2026-06-09T09:38:19.454685",
+      "end_time": "2026-06-09T09:38:20.417788",
+      "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
     }
   }
 }

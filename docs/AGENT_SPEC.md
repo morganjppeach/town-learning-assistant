@@ -45,9 +45,10 @@ To add a new tool to the system, follow these steps:
 
 ### 3.1 Configuration (Environment Variables)
 The `ActionRegistry` uses the following optional environment variables for production-grade capabilities:
+- **Execution Mode**: `TOWN_EXECUTION_MODE` (`api` or `cli`). Determines if the system uses direct API calls or wraps CLI tools like `claude-code`.
 - **Search**: `TAVILY_API_KEY`, `SERPAPI_API_KEY`
 - **LLM**: `OPENAI_API_KEY`, `OPENAI_MODEL`, `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`
-- **Fallback**: If no keys are provided, the system defaults to a keyless DuckDuckGo scrape and a deterministic heuristic summarizer.
+- **Fallback**: If no keys are provided and mode is `api`, the system defaults to a keyless DuckDuckGo scrape and a deterministic heuristic summarizer. If mode is `cli`, it attempts to use `claude-code` before falling back to API/heuristic.
 
 ## 4. State Transition Table
 

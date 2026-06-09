@@ -25,6 +25,7 @@ Design tenets
 from __future__ import annotations
 
 import json
+import subprocess
 import logging
 import os
 import re
@@ -514,16 +515,66 @@ class _AnthropicProvider(_LLMProvider):
         return "\n".join(parts).strip()
 
 
+class _CLIProvider(_LLMProvider):
+    """CLI-based LLM provider (wraps claude-code or similar CLI agents)."""
+
+    name = "cli_agent"
+
+    def is_available(self) -> bool:
+        try:
+            import shutil
+            return shutil.which("claude-code") is not None
+        except Exception:
+            return False
+
+    def summarize(
+        self,
+        content: str,
+        *,
+        instruction: Optional[str] = None,
+        max_tokens: int = 700,
+        temperature: float = 0.2,
+    ) -> str:
+        system = instruction or DEFAULT_SUMMARY_SYSTEM_PROMPT
+        full_prompt = f"SYSTEM INSTRUCTION: {system}\n\nCONTENT TO SUMMARIZE:\n{content}\n\nPlease provide the summary now. Respond ONLY with the summary text."
+        
+        try:
+            import subprocess
+            result = subprocess.run(
+                ["claude-code", full_prompt],
+                capture_output=True,
+                text=True,
+                timeout=60.0,
+                check=True
+            )
+            output = result.stdout.strip() or result.stderr.strip()
+            return output
+        except Exception as exc:
+            raise RuntimeError(f"CLI Agent execution failed: {exc}")
+
+
 def _select_llm_provider() -> Optional[_LLMProvider]:
-    """Choose the first available LLM provider, or None if none configured."""
-    for cls in (_OpenAIProvider, _AnthropicProvider):
-        provider = cls()
-        if provider.is_available():
-            logger.info(f"LLM provider selected: {provider.name}")
-            return provider
+    """Choose the LLM provider based on execution mode and availability."""
+    mode = os.getenv("TOWN_EXECUTION_MODE", "api").lower()
+    
+    if mode == "cli":
+        # Priority: CLI Agent -> OpenAI -> Anthropic
+        for cls in (_CLIProvider, _OpenAIProvider, _AnthropicProvider):
+            provider = cls()
+            if provider.is_available():
+                logger.info(f"CLI mode active. LLM provider selected: {provider.name}")
+                return provider
+    else:
+        # Priority: OpenAI -> Anthropic -> CLI Agent (as fallback)
+        for cls in (_OpenAIProvider, _AnthropicProvider, _CLIProvider):
+            provider = cls()
+            if provider.is_available():
+                logger.info(f"API mode active. LLM provider selected: {provider.name}")
+                return provider
+
     logger.warning(
-        "No LLM provider configured. Set OPENAI_API_KEY or ANTHROPIC_API_KEY "
-        "to enable real summarization."
+        "No LLM provider configured. Set TOWN_EXECUTION_MODE=cli (requires claude-code) "
+        "or set OPENAI_API_KEY/ANTHROPIC_API_KEY for API mode."
     )
     return None
 
