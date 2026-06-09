@@ -122,16 +122,57 @@
       "trigger_context": {},
       "step_results": {
         "search": {
+          "query": "Quantum Computing in 2026",
+          "provider": "duckduckgo",
           "results": [
-            "Found key info about Quantum Computing in 2026 from Source A",
-            "Insight on Quantum Computing in 2026 from Source B"
-          ]
+            {
+              "title": "Quantum Computing in 2026: From Laboratory Curiosity to Practical ...",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Ftech%2Dinsider.org%2Fquantum%2Dcomputing%2Din%2D2026%2Dfrom%2Dlaboratory%2Dcuriosity%2Dto%2Dpractical%2Dutility%2F&amp;rut=d0947a0fe4f175fcf5e1140e29b3d9340a83a636eaa5722b114e2e0bc35f09b9",
+              "snippet": "Quantum computing has been five years away for the past twenty years, or so the joke goes. But 2026 is proving to be the year when the technology begins to transition from laboratory curiosity to practical, if narrow, utility. With IBM, Google, and a growing roster of startups demonstrating results that classical computers cannot efficiently replicate, the question is no longer whether quantum ...",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Quantum Computing Milestones 2025-2026: IBM, Google, IonQ, Quantinuum ...",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.technerdo.com%2Fblog%2Fquantum%2Dcomputing%2Dmilestones%2D2026&amp;rut=a17018cc196f01a4682d9f44fa3d3028db1800b842984c58bf87e21c8291c7f8",
+              "snippet": "The most significant quantum computing advances of 2025-2026: Google Willow, IBM Nighthawk, IonQ&#x27;s quantum advantage result, Quantinuum&#x27;s IPO filing, and what comes next.",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "7 Quantum Computing Trends That Will Shape Every Industry In 2026 - Forbes",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fbernardmarr%2F2025%2F12%2F11%2F7%2Dquantum%2Dcomputing%2Dtrends%2Dthat%2Dwill%2Dshape%2Devery%2Dindustry%2Din%2D2026%2F&amp;rut=220eae50547781eac2a06ce0adb922d7d02d85ca7c5909f8297908ec8a4df654",
+              "snippet": "Quantum computing is entering a pivotal year as breakthroughs move from laboratory experiments to real business impact across AI, cybersecurity and industry applications.",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Quantum Computing in 2026: From Lab to Reality | Zylos Research",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fzylos.ai%2Fen%2Fresearch%2F2026%2D02%2D02%2Dquantum%2Dcomputing%2F&amp;rut=560f53f4c721f61966ecb2dca536d104117d1455d6452118a10aa8a813abe1ce",
+              "snippet": "Cloud Quantum Computing: IBM, AWS, Microsoft, and Google are rolling out pay-as-you-go access to quantum computing in 2026, democratizing access for research institutions and early adopters.",
+              "score": null,
+              "source": "duckduckgo"
+            },
+            {
+              "title": "Quantum Computing in 2026: Trends Changing Every Industry",
+              "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.analyticsinsight.net%2Fquantum%2Dcomputing%2Danalytics%2Dinsight%2Fquantum%2Dcomputing%2Din%2D2026%2D7%2Dtrends%2Dthat%2Dwill%2Dimpact%2Devery%2Dindustry&amp;rut=c4d36f79e8066bafa4fadb54088508e4670d861aaf1b8f1292d2bc0a0c40493c",
+              "snippet": "Quantum Computing in 2026 moves from research to real use. Top quantum computing trends 2026 shape industries, security, AI growth, and the future of quantum computing.",
+              "score": null,
+              "source": "duckduckgo"
+            }
+          ],
+          "error": null
         },
-        "summarize": "Summary of content: No content provided synthesized into high-level takeaways.",
-        "format": "--- RESEARCH BRIEF ---\\nNo summary available\\n--- END BRIEF ---"
+        "summarize": {
+          "summary": "No results found for 'Quantum Computing in 2026'.",
+          "provider": "heuristic",
+          "query": "Quantum Computing in 2026",
+          "warning": "No LLM provider configured. Set OPENAI_API_KEY or ANTHROPIC_API_KEY for real summarization."
+        },
+        "format": "--- RESEARCH BRIEF ---\nTopic: Quantum Computing in 2026\n(synthesized via unknown)\nNo summary available\n--- END BRIEF ---"
       },
-      "start_time": "2026-06-08T21:48:14.839337",
-      "end_time": "2026-06-08T21:48:14.839358",
+      "start_time": "2026-06-09T09:28:27.678669",
+      "end_time": "2026-06-09T09:28:28.786182",
       "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
     },
     "exec_001": {
@@ -155,8 +196,8 @@
         },
         "synth": "Good morning. You have 0 events and 0 priority emails today."
       },
-      "start_time": "2026-06-08T21:48:14.839895",
-      "end_time": "2026-06-08T21:48:14.839910",
+      "start_time": "2026-06-09T09:28:28.791814",
+      "end_time": "2026-06-09T09:28:28.792095",
       "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
     },
     "strat_001": {
@@ -180,8 +221,33 @@
           "reason": "Event aligns with goals: general excellence"
         }
       },
-      "start_time": "2026-06-08T21:48:14.840416",
+      "start_time": "2026-06-09T09:28:28.793677",
       "end_time": null,
+      "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
+    },
+    "5a7ebb26-c752-4903-9e5f-4c9a91c47397": {
+      "run_id": "5a7ebb26-c752-4903-9e5f-4c9a91c47397",
+      "routine_id": "autonomous_research_brief",
+      "status": "completed",
+      "inputs": {
+        "research_preferences": "High-detail, academic sources",
+        "topic": "the white paper of million steps with ai and zero error"
+      },
+      "trigger_context": {
+        "topic": "the white paper of million steps with ai and zero error"
+      },
+      "step_results": {
+        "search": {
+          "results": [
+            "Found key info about the white paper of million steps with ai and zero error from Source A",
+            "Insight on the white paper of million steps with ai and zero error from Source B"
+          ]
+        },
+        "summarize": "Summary of content: No content provided synthesized into high-level takeaways.",
+        "format": "--- RESEARCH BRIEF ---\\nNo summary available\\n--- END BRIEF ---"
+      },
+      "start_time": "2026-06-09T08:08:03.941697",
+      "end_time": "2026-06-09T08:08:03.941766",
       "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
     }
   }

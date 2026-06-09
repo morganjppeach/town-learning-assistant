@@ -39,9 +39,15 @@ This document provides the technical specification required for an AI Agent to o
 
 To add a new tool to the system, follow these steps:
 
-1. **Implement the Action**: Create a Python function in `action_registry.py` with the signature `def func(params, inputs)`.
+1. **Implement the Action**: Create a Python function in `action_registry.py` with the signature `def func(params, inputs)`. If the action requires external APIs, use the `_Provider` base class pattern to ensure tiered fallback.
 2. **Register the Action**: Call `self.register("action_name", func)` in `ActionRegistry._register_defaults()`.
 3. **Define the Routine**: Create a `Routine` object (via `populate_gold_routines.py` or direct JSON) using the `action_name` in a `RoutineStep`.
+
+### 3.1 Configuration (Environment Variables)
+The `ActionRegistry` uses the following optional environment variables for production-grade capabilities:
+- **Search**: `TAVILY_API_KEY`, `SERPAPI_API_KEY`
+- **LLM**: `OPENAI_API_KEY`, `OPENAI_MODEL`, `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`
+- **Fallback**: If no keys are provided, the system defaults to a keyless DuckDuckGo scrape and a deterministic heuristic summarizer.
 
 ## 4. State Transition Table
 

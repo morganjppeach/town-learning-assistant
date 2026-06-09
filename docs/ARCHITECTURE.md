@@ -18,8 +18,9 @@ The state-machine execution core. Key features:
 
 ### 3. The Action Registry (`action_registry.py`)
 The system's capability layer. It decouples the "what" from the "how":
-- **Abstract Actions**: Routines reference actions by name (e.g., `web_search`).
-- **Concrete Implementations**: The registry maps these names to Python functions. This allows the system to be upgraded from simulated actions to real API calls without changing the routine definitions.
+|- **Abstract Actions**: Routines reference actions by name (e.g., `web_search`).
+|- **Provider Pattern**: The registry uses a tiered provider architecture. For example, `web_search` attempts a high-fidelity API (Tavily -> SerpApi) and falls back to a keyless HTML scrape (DuckDuckGo) to ensure 100% availability.
+|- **Concrete Implementations**: The registry maps these names to Python functions. This allows the system to be upgraded from simulated actions to production-grade API calls without changing the routine definitions.
 
 ### 4. The Persistence Layer (`town_store.py`)
 A JSON-backed storage system maintaining three primary collections:
