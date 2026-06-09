@@ -45,5 +45,12 @@ class TownBrain:
             trigger_context=event_context
         )
 
-        result = self.runner.execute(run_state, routine, profile_id)
-        return result
+        return self.execute_routine(run_state, profile_id)
+
+    def execute_routine(self, run_state: RunState, profile_id: str):
+        """Executes a routine using a specific run state."""
+        routine = self.store.get_routine(run_state.routine_id)
+        if not routine:
+            raise ValueError("Routine not found")
+        
+        return self.runner.execute(run_state, routine, profile_id)

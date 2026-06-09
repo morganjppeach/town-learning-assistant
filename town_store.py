@@ -15,8 +15,13 @@ class TownStore:
         return {"profiles": {}, "routines": {}, "runs": {}}
 
     def save(self):
+        def json_serial(obj):
+            if hasattr(obj, 'isoformat'):
+                return obj.isoformat()
+            raise TypeError(f"Type {type(obj)} not serializable")
+
         with open(self.storage_path, "w") as f:
-            json.dump(self._data, f, indent=2)
+            json.dump(self._data, f, indent=2, default=json_serial)
 
     def save_profile(self, profile_id: str, data: dict):
         self._data["profiles"][profile_id] = data

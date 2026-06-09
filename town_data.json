@@ -1,0 +1,188 @@
+{
+  "profiles": {
+    "test_user": {
+      "id": "test_user",
+      "name": "JP",
+      "research_preferences": "High-detail, academic sources",
+      "briefing_style": "Concise, bullet-points",
+      "strategic_goals": "Expand AI infrastructure and automate executive workflows"
+    }
+  },
+  "routines": {
+    "autonomous_research_brief": {
+      "routine_id": "autonomous_research_brief",
+      "name": "Autonomous Research Brief",
+      "description": "Performs deep research on a topic and produces a synthesized brief.",
+      "trigger": null,
+      "required_profile_fields": [
+        "research_preferences"
+      ],
+      "steps": [
+        {
+          "step_id": "search",
+          "description": "Search the web for relevant information on the topic.",
+          "action": "web_search",
+          "params": {
+            "query": "{{topic}}"
+          },
+          "requires_approval": false
+        },
+        {
+          "step_id": "summarize",
+          "description": "Summarize the search results into key takeaways.",
+          "action": "summarize_content",
+          "params": {},
+          "requires_approval": false
+        },
+        {
+          "step_id": "format",
+          "description": "Format the summary into a professional research brief.",
+          "action": "format_brief",
+          "params": {},
+          "requires_approval": false
+        }
+      ],
+      "version": "1.0.0"
+    },
+    "executive_daily_briefing": {
+      "routine_id": "executive_daily_briefing",
+      "name": "Executive Daily Briefing",
+      "description": "Aggregates calendar and emails into a concise morning briefing.",
+      "trigger": null,
+      "required_profile_fields": [
+        "briefing_style"
+      ],
+      "steps": [
+        {
+          "step_id": "cal",
+          "description": "Retrieve today's calendar events.",
+          "action": "fetch_calendar",
+          "params": {},
+          "requires_approval": false
+        },
+        {
+          "step_id": "mail",
+          "description": "Retrieve priority emails from the inbox.",
+          "action": "fetch_emails",
+          "params": {},
+          "requires_approval": false
+        },
+        {
+          "step_id": "synth",
+          "description": "Synthesize events and emails into a concise daily briefing.",
+          "action": "synthesize_briefing",
+          "params": {},
+          "requires_approval": false
+        }
+      ],
+      "version": "1.0.0"
+    },
+    "strategic_opportunity_monitor": {
+      "routine_id": "strategic_opportunity_monitor",
+      "name": "Strategic Opportunity Monitor",
+      "description": "Analyzes external events for strategic alignment and notifies the executive.",
+      "trigger": null,
+      "required_profile_fields": [
+        "strategic_goals"
+      ],
+      "steps": [
+        {
+          "step_id": "analyze",
+          "description": "Analyze the incoming external event payload.",
+          "action": "analyze_event",
+          "params": {},
+          "requires_approval": false
+        },
+        {
+          "step_id": "align",
+          "description": "Check the event analysis against the user's strategic goals.",
+          "action": "check_alignment",
+          "params": {},
+          "requires_approval": false
+        },
+        {
+          "step_id": "notify",
+          "description": "Notify the executive of the high-alignment opportunity.",
+          "action": "notify_executive",
+          "params": {},
+          "requires_approval": true
+        }
+      ],
+      "version": "1.0.0"
+    }
+  },
+  "runs": {
+    "res_001": {
+      "run_id": "res_001",
+      "routine_id": "autonomous_research_brief",
+      "status": "completed",
+      "inputs": {
+        "topic": "Quantum Computing in 2026"
+      },
+      "trigger_context": {},
+      "step_results": {
+        "search": {
+          "results": [
+            "Found key info about Quantum Computing in 2026 from Source A",
+            "Insight on Quantum Computing in 2026 from Source B"
+          ]
+        },
+        "summarize": "Summary of content: No content provided synthesized into high-level takeaways.",
+        "format": "--- RESEARCH BRIEF ---\\nNo summary available\\n--- END BRIEF ---"
+      },
+      "start_time": "2026-06-08T21:48:14.839337",
+      "end_time": "2026-06-08T21:48:14.839358",
+      "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
+    },
+    "exec_001": {
+      "run_id": "exec_001",
+      "routine_id": "executive_daily_briefing",
+      "status": "completed",
+      "inputs": {},
+      "trigger_context": {},
+      "step_results": {
+        "cal": {
+          "events": [
+            "10:00 AM: Board Meeting",
+            "2:00 PM: Product Review"
+          ]
+        },
+        "mail": {
+          "emails": [
+            "From: CEO - Urgent Strategy Update",
+            "From: Ops - Weekly Report"
+          ]
+        },
+        "synth": "Good morning. You have 0 events and 0 priority emails today."
+      },
+      "start_time": "2026-06-08T21:48:14.839895",
+      "end_time": "2026-06-08T21:48:14.839910",
+      "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
+    },
+    "strat_001": {
+      "run_id": "strat_001",
+      "routine_id": "strategic_opportunity_monitor",
+      "status": "awaiting_approval",
+      "inputs": {
+        "event_payload": {
+          "event_type": "new_partnership_request",
+          "detail": "AI chip supply"
+        }
+      },
+      "trigger_context": {},
+      "step_results": {
+        "analyze": {
+          "analysis": "Analyzed event: new_partnership_request. Priority: High."
+        },
+        "align": {
+          "aligned": true,
+          "score": 0.9,
+          "reason": "Event aligns with goals: general excellence"
+        }
+      },
+      "start_time": "2026-06-08T21:48:14.840416",
+      "end_time": null,
+      "memory_snapshot_hash": "ad0f97f238e4e73f3c8d7d6148c29443882e480a4ff3a42c8912b049b678275d"
+    }
+  }
+}

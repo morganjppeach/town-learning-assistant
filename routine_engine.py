@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import Any, Dict, Optional
 from routine_schema import Routine, RunState, RoutineStatus, RoutineStep
 from town_store import TownStore
+from action_registry import action_registry
 
 class RoutineRunner:
     def __init__(self, store: TownStore):
@@ -28,8 +29,17 @@ class RoutineRunner:
                 self.store.save_run(run_state.run_id, run_state.dict())
                 return {"status": "paused", "step": step.step_id}
 
-            # Simulate Action Execution
-            result = self._perform_action(step.action, step.params, run_state.inputs)
+            # Resolve template variables in params
+            resolved_params = {}
+            for k, v in step.params.items():
+                if isinstance(v, str) and v.startswith("{{") and v.endswith("}}"):
+                    var_name = v[2:-2]
+                    resolved_params[k] = run_state.inputs.get(var_name, v)
+                else:
+                    resolved_params[k] = v
+
+            # Execute real action from registry
+            result = self._perform_action(step.action, resolved_params, run_state.inputs)
             run_state.step_results[step.step_id] = result
             
         run_state.status = RoutineStatus.COMPLETED
@@ -38,5 +48,4 @@ class RoutineRunner:
         return {"status": "success", "results": run_state.step_results}
 
     def _perform_action(self, action: str, params: dict, inputs: dict) -> Any:
-        # In a real system, this would call actual tools/plugins
-        return f"Executed {action} with params {params} and inputs {inputs}"
+        return action_registry.execute(action, params, inputs)
